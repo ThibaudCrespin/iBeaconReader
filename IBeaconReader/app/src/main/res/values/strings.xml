@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">IBeaconReader</string>
+    <string name="welcome">Veuillez présenter votre carte Izly</string>
 </resources>
