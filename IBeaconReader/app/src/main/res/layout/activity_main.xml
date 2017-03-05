@@ -10,21 +10,31 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.iut.lr.ibeaconreader.MainActivity">
 
-    <TextView
-        android:id="@+id/textIzly"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/welcome"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:background="@drawable/izly"
+        android:scaleType="fitXY"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:scaleType="fitXY"/>
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="@string/authent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:textSize="24sp"
+        android:textStyle="normal|bold"
+        android:layout_above="@+id/imageView"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/textIzly"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

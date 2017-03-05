@@ -1,11 +1,15 @@
 package com.iut.lr.ibeaconreader;
 
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.app.PendingIntent;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.nfc.tech.NfcA;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -77,9 +81,25 @@ public class MainActivity extends AppCompatActivity {
 
         imageView.startAnimation(Animation);
 
+        Intent goToApp = new Intent(MainActivity.this, BeaconActivity.class);
+
+        // Create the AlertDialog for failed authentication
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setMessage(R.string.fail)
+                .setNegativeButton(R.string.retry, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                    }
+                });
+        Dialog auth_error = builder.create();
+
         // Nous avons fait un System.out.println du nombre récupéré avec la carte puis nous
         // l'avons inséré dans la condition if.
-        if (number == -1971634176 || number == -2106576896)
-            startActivity(new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE));
+        if (number == -1971634176 || number == -2106576896) {
+            startActivity(goToApp);
+        } else {
+            auth_error.show();
+        }
+
     }
 }

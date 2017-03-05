@@ -1,4 +1,7 @@
 <resources>
-    <string name="app_name">IBeaconReader</string>
-    <string name="welcome">Veuillez présenter votre carte Izly</string>
+    <string name="app_name">iBeacon Technician</string>
+    <string name="authent">Authentification</string>
+    <string name="fail">L\'authentification a échoué. Vous n\'avez peut-être pas les droits nécessaires.</string>
+    <string name="retry">Réessayer</string>
+    <string name="welcome">Afin d\'accéder à l\'application, veuillez présenter votre carte Izly au dos du téléphone pour vous authentifier.</string>
 </resources>
