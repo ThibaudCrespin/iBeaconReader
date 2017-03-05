@@ -11,11 +11,84 @@
     tools:context="com.iut.lr.ibeaconreader.BeaconActivity">
 
     <TextView
-        android:text="iBeacon"
+        android:text="Localisation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView2"
+        android:id="@+id/beaconTitle"
         android:textSize="30sp"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text="@string/zone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="63dp"
+        android:id="@+id/zoneLabel"
+        android:textSize="24sp"
+        android:layout_below="@+id/beaconTitle"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="22dp"
+        android:textStyle="normal|italic" />
+
+    <TextView
+        android:text="val"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/roomValue"
+        android:textSize="24sp"
+        android:layout_alignBaseline="@+id/roomLabel"
+        android:layout_alignBottom="@+id/roomLabel"
+        android:layout_alignStart="@+id/zoneValue" />
+
+    <TextView
+        android:text="@string/room"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:id="@+id/roomLabel"
+        android:textSize="24sp"
+        android:textStyle="normal|italic"
+        android:layout_below="@+id/zoneLabel"
+        android:layout_alignEnd="@+id/zoneLabel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/zoneValue"
+        android:textSize="24sp"
+        android:text="val"
+        android:layout_marginEnd="53dp"
+        android:layout_alignBaseline="@+id/zoneLabel"
+        android:layout_alignBottom="@+id/zoneLabel"
+        android:layout_alignEnd="@+id/beaconTitle" />
+
+    <Button
+        android:text="@string/view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="@string/id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/idLabel"
+        android:layout_marginTop="98dp"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/roomValue"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="val"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:id="@+id/idValue"
+        android:layout_below="@+id/idLabel"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

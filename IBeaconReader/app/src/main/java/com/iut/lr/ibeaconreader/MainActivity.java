@@ -20,6 +20,8 @@ import android.widget.ImageView;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
+import static android.R.id.input;
+
 public class MainActivity extends AppCompatActivity {
 
     IntentFilter[] filters;
@@ -38,7 +40,10 @@ public class MainActivity extends AppCompatActivity {
         IntentFilter mifare = new IntentFilter((NfcAdapter.ACTION_TECH_DISCOVERED));
         filters = new IntentFilter[] { mifare };
         techs = new String[][] { new String[] {NfcA.class.getName() } };
-        adapter = NfcAdapter.getDefaultAdapter(this);
+        if(adapter==null)
+        {
+            adapter = NfcAdapter.getDefaultAdapter(this);
+        }
 
         imageView = (ImageView) findViewById(R.id.imageView);
 
@@ -93,9 +98,19 @@ public class MainActivity extends AppCompatActivity {
                 });
         Dialog auth_error = builder.create();
 
-        // Nous avons fait un System.out.println du nombre récupéré avec la carte puis nous
-        // l'avons inséré dans la condition if.
-        if (number == -1971634176 || number == -2106576896) {
+        // Check if Izly card is authorized and passing tech id as parameter
+        boolean go = true;
+
+        if (number == -1971634176) {
+            goToApp.putExtra("tech", 1);
+        } else if (number == -2106576896) {
+            goToApp.putExtra("tech", 2);
+        } else {
+            go = false;
+        }
+
+        // Launch iBeacon activity or show error dialog
+        if(go){
             startActivity(goToApp);
         } else {
             auth_error.show();
