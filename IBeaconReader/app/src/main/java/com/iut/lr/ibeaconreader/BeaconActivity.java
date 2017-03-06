@@ -36,6 +36,8 @@ public class BeaconActivity extends AppCompatActivity {
     TextView zoneValue;
     TextView roomValue;
     TextView idValue;
+    TextView majorValue;
+    TextView minorValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,7 +113,7 @@ public class BeaconActivity extends AppCompatActivity {
                 final int minor = (scanRecord[startByte + 22] & 0xff) * 0x100 + (scanRecord[startByte + 23] & 0xff);
 
                 Log.i(LOG_TAG,"UUID: " +uuid + "\\nmajor: " +major +"\\nminor" +minor);
-                displayData(uuid);
+                displayData(uuid, major, minor);
             }
         }
     };
@@ -154,37 +156,41 @@ public class BeaconActivity extends AppCompatActivity {
     };
 
     // Display data in activity
-    public void displayData (String uuid) {
+    public void displayData (String uuid, int major, int minor) {
         zoneValue = (TextView) findViewById(R.id.zoneValue);
         roomValue = (TextView) findViewById(R.id.roomValue);
         idValue = (TextView) findViewById(R.id.idValue);
+        majorValue = (TextView) findViewById(R.id.majorValue);
+        minorValue = (TextView) findViewById(R.id.minorValue);
 
         String zone, room;
 
-        switch (uuid){
-            case "E2C56DB5-DFFB-48D2-B060-D0F5A71096E0" :
+        String res = ""+major+minor+"";
+
+        switch (res){
+            case "103" :
                 zone = "C";
                 room = "101";
                 break;
-            case "1" :
+            case "134" :
                 zone = "C";
                 room = "105";
                 break;
-            case "2" :
-                zone = "C";
-                room = "107";
+            case "111" :
+                zone = "Couloir";
+                room = "Couloir";
                 break;
-            case "3" :
+            case "133" :
                 zone = "D";
-                room = "102";
+                room = "101";
                 break;
-            case "4" :
+            case "24" :
                 zone = "D";
-                room = "104";
+                room = "109";
                 break;
-            case "5" :
+            case "131" :
                 zone = "D";
-                room = "106";
+                room = "110";
                 break;
             default:
                 zone = "Recherche...";
@@ -194,6 +200,8 @@ public class BeaconActivity extends AppCompatActivity {
         zoneValue.setText(zone);
         roomValue.setText(room);
         idValue.setText(uuid);
+        majorValue.setText(""+major+"");
+        minorValue.setText(""+minor+"");
 
         writeToFile(zone + room, this);
     }

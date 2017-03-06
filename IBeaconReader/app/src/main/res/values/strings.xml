@@ -8,5 +8,7 @@
     <string name="zone">Bâtiment</string>
     <string name="room">Salle</string>
     <string name="id">UUID</string>
+    <string name="major">Major</string>
+    <string name="minor">Minor</string>
     <string name="view">Afficher le parcours</string>
 </resources>

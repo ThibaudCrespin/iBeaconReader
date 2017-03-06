@@ -33,14 +33,15 @@
         android:textStyle="normal|italic" />
 
     <TextView
-        android:text="val"
+        android:id="@+id/roomValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/roomValue"
-        android:textSize="24sp"
         android:layout_alignBaseline="@+id/roomLabel"
         android:layout_alignBottom="@+id/roomLabel"
-        android:layout_alignStart="@+id/zoneValue" />
+        android:layout_alignStart="@+id/zoneValue"
+        android:text="val"
+        android:textAlignment="viewStart"
+        android:textSize="24sp" />
 
     <TextView
         android:text="@string/room"
@@ -54,15 +55,16 @@
         android:layout_alignEnd="@+id/zoneLabel" />
 
     <TextView
+        android:id="@+id/zoneValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/zoneValue"
-        android:textSize="24sp"
         android:text="val"
-        android:layout_marginEnd="53dp"
+        android:textAlignment="textEnd"
+        android:textSize="24sp"
         android:layout_alignBaseline="@+id/zoneLabel"
         android:layout_alignBottom="@+id/zoneLabel"
-        android:layout_alignEnd="@+id/beaconTitle" />
+        android:layout_toEndOf="@+id/zoneLabel"
+        android:layout_marginStart="26dp" />
 
     <Button
         android:text="@string/view"
@@ -77,18 +79,54 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/idLabel"
-        android:layout_marginTop="98dp"
+        android:layout_marginTop="73dp"
         android:textSize="18sp"
         android:textStyle="normal|bold"
-        android:layout_below="@+id/roomValue"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/roomLabel"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:text="val"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="12dp"
         android:id="@+id/idValue"
         android:layout_below="@+id/idLabel"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/majorLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/idValue"
+        android:layout_marginTop="27dp"
+        android:text="@string/major"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/minorLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/majorLabel"
+        android:layout_marginTop="20dp"
+        android:text="@string/minor"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/majorValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/beaconTitle"
+        android:layout_alignTop="@+id/majorLabel"
+        android:text="val" />
+
+    <TextView
+        android:id="@+id/minorValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/majorValue"
+        android:layout_alignTop="@+id/minorLabel"
+        android:text="val" />
 </RelativeLayout>
